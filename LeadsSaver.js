@@ -28,7 +28,6 @@ btnEl.addEventListener("click", function () {
   if (inputEl.value === "") {
     let paraEl = document.getElementById("para-el");
     let msg = alert(  "Cannot save the empty lines");
-    paraEl.msg;
   } else {
     //if input value is not empty than push it into the "myLeads" array
     myLeads.push(inputEl.value.trim());
