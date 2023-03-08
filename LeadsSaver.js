@@ -1,22 +1,20 @@
-// let myLeads = ["www.amazon.com", "www.google.co.in", "www.walmart.com"];
+
 let inputEl = document.getElementById("input-el");
 let btnEl = document.getElementById("btn-el");
 let ulEl = document.getElementById("ul-el");
 let saveTabEl = document.getElementById("saveTab-el");
 let delEl = document.getElementById("delete-el");
 let myLeads = [];
-// getting the Localstorage  values
+
 const leadsFromLocalStorage = JSON.parse(localStorage.getItem("MyLeads"));
-// console.log(leadsFromLocalStorage);
-//checking if the localstorage has values or not if it has values the display on the screen
+
 if (leadsFromLocalStorage) {
   myLeads = leadsFromLocalStorage;
   render(myLeads);
 }
 
-//To save the URLs of the current Tab
 saveTabEl.addEventListener("click", () => {
-  //Google API(Application Interface) to get the tab the user is viewing
+ 
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     myLeads.push(tabs[0].url);
     localStorage.setItem("MyLeads", JSON.stringify(myLeads));
@@ -66,11 +64,4 @@ delEl.addEventListener("dblclick", function () {
   myLeads = [];
   render(myLeads);
 });
-// for (let i = 0; i < myLeads.length; i++) {
-//   //Create an element
-//   const li = document.createElement("li");
-//   //set the text content
-//   li.textContent = myLeads[i];
-//   //append the li into the ul tag
-//   ulEl.append(li);
-// }
+
